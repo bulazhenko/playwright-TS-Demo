@@ -1,70 +1,25 @@
 {
-  "name": "playwright-ts-template",
+  "name": "playwright-ts-demo",
   "version": "1.0.0",
-  "description": "Playwright Type script framework is designed for Web (Desktop & Mobile), API, and Electron apps. Stable and Robust layer on top of Playwright with inbuilt Utilities, Linting, Logging, Web hooks, Github actions, Reports and much more",
+  "description": "Playwright TypeScript Demo Project",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report"
+  },
   "keywords": [
     "playwright",
     "typescript",
     "testing",
-    "framework",
-    "template"
+    "automation"
   ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vasu31dev/playwright-ts-template.git"
-  },
-  "author": {
-    "name": "Vasudeva Annam",
-    "email": "vasu31dev@gmail.com"
-  },
-  "homepage": "https://github.com/vasu31dev/playwright-ts-template#readme",
-  "bugs": {
-    "url": "https://github.com/vasu31dev/playwright-ts-template/issues"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  },
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "vasu-playwright-utils": "^1.19.1"
-  },
-  "scripts": {
-    "clean": "rimraf dist",
-    "prebuild": "npm run clean",
-    "build": "tsc",
-    "validate": "tsc --noEmit",
-    "ready": "rimraf dist node_modules package-lock.json && npm i",
-    "test": "playwright test",
-    "test:chromium": "playwright test --retries 0 --project=chromiumheadless",
-    "test:chromium-headed": "playwright test -j 1 --retries 0 --headed --project=chromium",
-    "local": "playwright test -j 1 --retries 0 --headed --project=chromium",
-    "test:reg": "playwright test --project=chromiumheadless --grep-invert '@fail'",
-    "test:smoke": "playwright test --project=chromiumheadless -g '@smoke'",
-    "rerun": "playwright test -j 1 --retries 0 --headed --project=chromium --last-failed",
-    "change": "playwright test -j 1 --retries 0 --headed --project=chromium --only-changed",
-    "repeat": "playwright test -j 1 --retries 0 --headed --project=chromium --repeat-each",
-    "report": "playwright show-report playwright-report",
-    "ui": "playwright test --project=chromiumheadless --ui-port 0",
-    "trace": "playwright show-trace --port 0",
-    "record": "playwright codegen",
-    "clear:storage": "rimraf playwright/.auth",
-    "allure": "allure generate ./allure-results --clean && allure open ./allure-report",
-    "lint": "cross-env eslint 'tests/**/*.ts' 'test-setup/**/*.ts' 'playwright.config.ts'",
-    "lint:fix": "cross-env eslint 'tests/**/*.ts' 'test-setup/**/*.ts' 'playwright.config.ts' --fix",
-    "format": "cross-env prettier --write 'tests/**/*.ts' 'test-setup/**/*.ts' 'playwright.config.ts' '.eslintrc.js' '**/*.json' '**/*.md' '!package-lock.json' '!dist/**/*' '!build/**/*'",
-    "prepare": "husky",
-    "postinstall": "playwright install chromium"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{json,md}": "cross-env prettier --write",
-    "{*.ts,.eslintrc.js}": [
-      "cross-env eslint --fix",
-      "cross-env prettier --write"
-    ]
+    "@playwright/test": "^1.42.1",
+    "@types/node": "^20.11.24",
+    "dotenv": "^16.4.5",
+    "typescript": "^5.3.3"
   }
 }

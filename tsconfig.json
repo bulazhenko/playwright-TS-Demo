@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     // Language and Environment
-    "target": "es6", // ECMAScript(Javascript) target version to which the TypeScript code is compiled
+    "target": "ES2021", // ECMAScript(Javascript) target version to which the TypeScript code is compiled
 
     // Modules
     "module": "commonjs",
@@ -9,15 +9,11 @@
     "moduleResolution": "node", // Uses Node.js logic for traversing the directory tree to find the modules
     "resolveJsonModule": true, // Allows importing JSON files and accessing the data through 'import'
     "paths": {
-      "@pages/*": ["tests/pages/*", "examples/sauce-demo-tests-using-functions/pages/*"],
-      "@testdata/*": ["tests/testdata/*"],
-      "@fixturesetup": ["tests/fixtures/testFixtures"],
-      "@pagesetup": ["test-setup/page-setup"],
-      "@playwright-config": ["playwright.config"]
+      "@/*": ["tests/*"]
     }, // Sets up custom path mappings, enabling to import modules with convenient shorter paths
 
     // Emit
-    "outDir": "dist", // Directory where compiled JavaScript files are placed after TypeScript compilation
+    "outDir": "./dist", // Directory where compiled JavaScript files are placed after TypeScript compilation
     "sourceMap": true, // Generates a source map files along with the compiled JavaScript files
     "declaration": false, // No need to generate declaration files (.d.ts) for a test project
     "declarationMap": false, // No need to generate sourcemap for each corresponding '.d.ts' file
@@ -44,6 +40,6 @@
     // Completeness
     "skipLibCheck": true // Skips the type checking of '.d.ts' files for faster compilation times
   },
-  "include": ["test-setup/**/*.ts", "tests/**/*.ts", "playwright.config.ts", ".eslintrc.js", "examples/**/*.ts"],
+  "include": ["tests/**/*"],
   "exclude": ["node_modules"] // Node_modules are excluded by default, but explicitly specified here for further exclusions as needed in your project
 }
